@@ -1,0 +1,11 @@
+#answer-container {
+    background-color: rgb(184, 184, 184);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#answer-container > div {
+    flex-basis: 40%;
+    background-color: rgb(165, 165, 165);
+}

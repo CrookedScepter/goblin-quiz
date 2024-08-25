@@ -27,6 +27,7 @@ const answer = [answers1, answers2, answers3];
 
 let questionNumber = -1;
 
+
 function changeQuestionAndAnswerText() {
     questionNumber++;
     document.querySelector("#question").innerHTML = question[questionNumber];
