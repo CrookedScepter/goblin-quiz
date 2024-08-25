@@ -29,7 +29,6 @@ let questionNumber = -1;
 
 
 function changeQuestionAndAnswerText() {
-    questionNumber++;
     document.querySelector("#question").innerHTML = question[questionNumber];
     document.querySelector("#answer-1").innerHTML = answer[questionNumber][0];
     document.querySelector("#answer-2").innerHTML = answer[questionNumber][1];
@@ -37,8 +36,19 @@ function changeQuestionAndAnswerText() {
     document.querySelector("#answer-4").innerHTML = answer[questionNumber][3];
 }
 
+function displayAnswerPage() {
+    if (questionNumber === 3) {
+        alert("answer time!")
+    }
+}
+
 document.querySelector("#refresh-answers-button"),addEventListener("click", function() {
-    changeQuestionAndAnswerText();
+    questionNumber++;
+    if (questionNumber === 3) {
+        displayAnswerPage();
+    } else {
+        changeQuestionAndAnswerText();
+    }
 })
 
-
+//still need to add a system for rewarding points based on answers. this will inform the results on the end screen
