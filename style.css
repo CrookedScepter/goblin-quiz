@@ -47,10 +47,17 @@ body {
     display: none;
 }
 
-img {
+#corner-goblin {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    height: 200px;
+    width: 200px;
+    bottom: 0px;
+    right: 0px;
+}
+
+#prize-goblin {
+    width: 100%;
+    margin-top: 10px;
 }
 
 .container {
@@ -70,4 +77,11 @@ button {
 
 h1 {
     margin-top: 0px;
+}
+
+@media (max-width: 500px) {
+    #corner-goblin {
+        height: 100px;
+        width: 100px;
+    }
 }
