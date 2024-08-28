@@ -18,14 +18,15 @@ const question3 = "How tall are you?";
 const answers3 = [
     "5ft to 6ft",
     "6ft or taller",
-    "between 3 and 4 feet tall and weigh between 40 and 80 pounds. Your size is Small.",
-    "Less than 4ft"
+    "Less than 4ft",
+    "between 3 and 4 feet tall and weigh between 40 and 80 pounds. Your size is Small."
 ];
 
 const question = [question1, question2, question3];
 const answer = [answers1, answers2, answers3];
 
 let questionNumber = -1;
+let goblinScore = 0;
 
 
 function changeQuestionAndAnswerText() {
@@ -36,13 +37,44 @@ function changeQuestionAndAnswerText() {
     document.querySelector("#answer-4").innerHTML = answer[questionNumber][3];
 }
 
+$("#answer-4").on("click", function() {
+    goblinScore++;
+})
+
 function displayAnswerPage() {
-    if (questionNumber === 3) {
-        alert("answer time!")
+    $("#answer-container-parent").addClass("hidden");
+    
+    switch (goblinScore) {
+        case 0:
+            $("h1").text("Sorry, you're a human");
+            $("#result-body-0").removeClass("hidden");
+            break;
+
+        case 1:
+            $("h1").text("You're a human, but a little sloppy");
+            $("#result-body-1").removeClass("hidden");
+            break;
+
+        case 2:
+            $("h1").text("Maybe you're a goblin?");
+            $("#result-body-2").removeClass("hidden");
+            break;
+
+        case 3:
+            $("h1").text("CONGRATS: YOU'RE A GOBBO");
+            $("#result-body-3").removeClass("hidden");
+            break;
     }
 }
 
-document.querySelector("#refresh-answers-button"),addEventListener("click", function() {
+$("#start-button").on("click", function() {
+    $("div").removeClass("hidden");
+    $("#start-button").addClass("hidden");
+    questionNumber++;
+    changeQuestionAndAnswerText();
+})
+
+$("#answer-container div").on("click", function() { 
     questionNumber++;
     if (questionNumber === 3) {
         displayAnswerPage();
@@ -51,4 +83,4 @@ document.querySelector("#refresh-answers-button"),addEventListener("click", func
     }
 })
 
-//still need to add a system for rewarding points based on answers. this will inform the results on the end screen
+//change class of button when it is clicked to make it look like it is being clicked - add class then set timeout to remove it?
